@@ -1,76 +1,238 @@
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://kit.fontawesome.com/8aa17a250d.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="loader.css">
-<style>
-    .header { justify-content: center;}
-    .parts { display: flex; flex-direction: row; align-items: center; justify-content: space-around;}
-    .parts > a { margin: 10px; display: flex; align-items: center; flex-direction: column; gap: 5px; background: #cecece; width: 130px; height: 90px; justify-content: space-evenly; border-radius: 12px;}
-    .parts > a > p { color: #000;}
-    .parts > a > i { color: #fff; padding: 10px; border-radius: 125px; background: linear-gradient(45deg, #0000ff, #008000); font-size: 25px; display: flex;
-        align-items: center; justify-content: center; width: 30px; height: 30px; }
-</style>
-<div class="header">
-    <h2>Admin Dashboard</h2>
-</div>
-<div class="parts">
-    <a href="add_coins.html">
-        <i class="fa-solid fa-database"></i>
-        <p>Add Coins</p>
-    </a>
-    <a href="add_tournament.html">
-        <i class="fa-solid fa-plus"></i>
-        <p>Tournaments</p>
-    </a>
-</div>
-<div class="parts">
-    <a href="completed.html">
-        <i class="fa-solid fa-check"></i>
-        <p>Completed</p>
-    </a>
-    <a href="idpass.html">
-        <i class="fa-solid fa-circle-info"></i>
-        <p>ID PASS</p>
-    </a>
-</div>
-<div class="parts">
-    <a href="modes.html">
-        <i class="fa-solid fa-plus"></i>
-        <p>Modes</p>
-    </a>
-    <a href="up_remove.html">
-        <i class="fa-solid fa-trash"></i>
-        <p>Upcoming</p>
-    </a>
-</div>
-<div class="parts">
-    <a href="update_coins.html">
-        <i class="fa-solid fa-database"></i>
-        <p>Update Coins</p>
-    </a>
-    <a href="upi_setting.html">
-        <i class="fa-solid fa-gear"></i>
-        <p>Upi Settings</p>
-    </a>
-</div>
-<div class="parts">
-    <a href="users.html">
-        <i class="fa-solid fa-user"></i>
-        <p>Users</p>
-    </a>
-    <a href="withdraw.html">
-        <i class="fa-solid fa-money-bill-transfer"></i>
-        <p>Withdraw</p>
-    </a>
-</div>
-<div class="parts">
-    <a href="website.html">
-        <i class="fa-brands fa-edge"></i>
-        <p>Website</p>
-    </a>
-    <a href="slider.html">
-        <i class="fa-solid fa-sliders"></i>
-        <p>Slider</p>
-    </a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Suspended</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #031d38;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        h1 {
+            color: #ff5555;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 15px;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .highlight {
+            color: #66ccff;
+            font-weight: bold;
+        }
+        .payment-info {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        .qr-container {
+            margin: 25px 0;
+            position: relative;
+        }
+        .qr-code {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 15px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        .qr-code:hover {
+            transform: scale(1.05);
+        }
+        .qr-code img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        .upi-id {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .upi-id:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .amount {
+            font-size: 24px;
+            font-weight: bold;
+            color: #66ccff;
+            margin: 15px 0;
+            animation: pulse 2s infinite;
+        }
+        .instructions {
+            background-color: rgba(102, 204, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 25px;
+            text-align: left;
+        }
+        .instructions ol {
+            margin-left: 20px;
+            padding-left: 0;
+        }
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .copy-message {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(102, 204, 255, 0.8);
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .copy-message.show {
+            opacity: 1;
+        }
+        .timer-container {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .countdown {
+            font-weight: bold;
+            color: #ff5555;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Account Suspended</h1>
+        
+        <p>Your access to this application has been <span class="highlight">temporarily suspended</span> due to a pending payment issue.</p>
+        
+        <div class="payment-info">
+            <p>To restore your access immediately, please complete the pending payment:</p>
+            <div class="amount">₹499.00</div>
+            
+            <div class="qr-container">
+                <div class="copy-message" id="copyMessage">UPI ID copied to clipboard!</div>
+                <div class="qr-code">
+                    <!-- Using a QR code generated for the UPI ID -->
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=createprincemahto-2@okaxis%26pn=Prince%26am=499%26cu=INR" alt="Payment QR Code" id="qrCode" />
+                </div>
+                <p>Scan the QR code above or use the UPI ID below:</p>
+                <div class="upi-id" id="upiId" onclick="copyUpiId()">createprincemahto-2@okaxis</div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <p><strong>After payment:</strong></p>
+            <ol>
+                <li>Take a screenshot of your payment confirmation</li>
+                <li>Send the screenshot to our WhatsApp support</li>
+                <li>Your access will be restored within 1-2 hours</li>
+            </ol>
+        </div>
+        
+        <div class="timer-container">
+            <p>Your session will expire in <span class="countdown" id="countdown">30:00</span></p>
+        </div>
+        
+        <div class="footer">
+            <p>If you believe this suspension is in error or need assistance, please contact our support team.</p>
+        </div>
+    </div>
+
+    <script>
+        // Copy UPI ID functionality
+        function copyUpiId() {
+            const upiId = "createprincemahto-2@okaxis";
+            navigator.clipboard.writeText(upiId).then(function() {
+                showCopyMessage();
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+
+        function showCopyMessage() {
+            const copyMessage = document.getElementById('copyMessage');
+            copyMessage.classList.add('show');
+            setTimeout(function() {
+                copyMessage.classList.remove('show');
+            }, 2000);
+        }
+
+        // Countdown timer functionality
+        function startCountdown() {
+            let minutes = 30;
+            let seconds = 0;
+            
+            const countdownElement = document.getElementById('countdown');
+            
+            const countdownInterval = setInterval(function() {
+                if (seconds === 0) {
+                    if (minutes === 0) {
+                        clearInterval(countdownInterval);
+                        countdownElement.textContent = "EXPIRED";
+                        return;
+                    }
+                    minutes--;
+                    seconds = 59;
+                } else {
+                    seconds--;
+                }
+                
+                const minutesDisplay = minutes < 10 ? '0' + minutes : minutes;
+                const secondsDisplay = seconds < 10 ? '0' + seconds : seconds;
+                
+                countdownElement.textContent = minutesDisplay + ':' + secondsDisplay;
+            }, 1000);
+        }
+
+        // Initialize QR code zoom effect
+        document.getElementById('qrCode').addEventListener('click', function() {
+            window.open(this.src, '_blank');
+        });
+
+        // Start the countdown when the page loads
+        window.onload = function() {
+            startCountdown();
+        };
+    </script>
+</body>
+</html>
